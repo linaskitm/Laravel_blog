@@ -3,10 +3,12 @@
     <div class="row justify-content-center ">
         <h2>Add Post</h2>
     </div>
-    <form method="post">
+    @include('blog_theme/_partials/errors')
+    <form action="/store" method="post">
+        {{csrf_field()}}
         <div class="form-group">
             <label for="title"></label>
-            <input type="title" class="form-control" id="title" name="title" placeholder="Post title">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Post title">
         </div>
         <div class="form-group">
             <label for="category"></label>
@@ -19,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="content"></label>
-            <textarea class="form-control" id="content" name="content" rows="3" placeholder="Your post.."></textarea>
+            <textarea class="form-control" id="content" name="body" rows="3" placeholder="Your post.."></textarea>
         </div>
         <div class="form-group">
             <label for="image"></label>

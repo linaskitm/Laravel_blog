@@ -19,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'BlogController@index');
 Route::get('/add', 'BlogController@addPost');
 Route::post('/store','BlogController@store');
+Route::get('/post/{post}', 'BlogController@showFull');
+Route::get('/edit/{post}', 'BlogController@edit');
+Route::patch('/storeupdate/{post}', 'BlogController@storeUpdate');
+Route::get('/delete/{post}', 'BlogController@delete');
+
+Route::get('/add-category', 'CategoryController@addCategory');
+Route::post('/storecategory', 'CategoryController@storeCategory');
+

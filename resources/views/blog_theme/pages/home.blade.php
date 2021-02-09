@@ -17,10 +17,18 @@
                         @endif
 
             </a>
-
-            <p class="post-meta">{{$post->category}}
+                    @foreach($cat as $c)
+                        @if($post->category == $c->id)
+            <p class="post-meta">{{$c->category}}
+                        @endif
+                    @endforeach
                 <a href="#">From Database</a>
                 {{$post->created_at->format('M j, Y')}}</p>
+
+            <ul class="list-group">
+                <li class="list-group-item"><a href="/edit/{{$post->id}}">Edit</a></li>
+                <li class="list-group-item"><a href="/delete/{{$post->id}}">Delete</a></li>
+            </ul>
         </div>
             <hr>
         @endforeach

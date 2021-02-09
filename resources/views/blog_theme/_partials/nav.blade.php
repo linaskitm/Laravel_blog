@@ -11,10 +11,10 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="/add-category">Add Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/add">Sample Post</a>
+                    <a class="nav-link" href="/add">Add Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>

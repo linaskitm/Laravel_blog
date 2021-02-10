@@ -5,12 +5,12 @@
     <div class="col-lg-8 col-md-10 mx-auto">
         @foreach($posts as $post)
         <div class="post-preview">
-            <a href="post.html">
+            <a href="post/{{$post->id}}">
                 <h2 class="post-title">
                     {{$post->title}}
                 </h2>
                 <h3 class="post-subtitle">
-                    {{ substr(strip_tags($post->body), 0, 250) }}
+                    {{ Str::limit($post->body, 100) }}
                 </h3>
                     @if(strlen(strip_tags($post->body)) > 50)
                         <a href="post/{{$post->id}}">Read more</a>
@@ -19,11 +19,11 @@
             </a>
                     @foreach($cat as $c)
                         @if($post->category == $c->id)
-            <p class="post-meta">{{$c->category}}
+            <p class="post-meta mb-0">Category: {{$c->category}}
                         @endif
                     @endforeach
-                <a href="#">From Database</a>
-                {{$post->created_at->format('M j, Y')}}</p>
+
+                    <p class="post-meta mt-0">Created at: {{$post->created_at->format('M j, Y')}}</p>
 
             <ul class="list-group">
                 <li class="list-group-item"><a href="/edit/{{$post->id}}">Edit</a></li>

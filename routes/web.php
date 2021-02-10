@@ -26,4 +26,9 @@ Route::get('/delete/{post}', 'BlogController@delete');
 
 Route::get('/add-category', 'CategoryController@addCategory');
 Route::post('/storecategory', 'CategoryController@storeCategory');
+Route::get('/del/{category}', 'CategoryController@deleteCategory');
+
+// abu routai kreipiasi i skirtingus metodus, kad suskirstyti postus pagal kategorijas
+Route::get('/postby/{category}', 'BlogController@showByCategory');
+Route::get('/bycategory/{category}', 'CategoryController@selectByCategory');
 

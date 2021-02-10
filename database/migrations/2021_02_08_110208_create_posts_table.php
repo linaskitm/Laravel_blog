@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
+            //(DB::table('categories')->select('id')
             $table->string('category');
             $table->string('image')->nullable();
             $table->timestamps();

@@ -14,13 +14,18 @@
         </div>
     </form>
     <div class="row justify-content-center ">
+        <div>
+            <h4 class="text-center pb-3">List of Categories</h4>
+
         <ul class="list-group">
-            @foreach($cat as $c)
-                <li class="list-group-item">{{$c->category}}</li>
+            @foreach($categories as $category)
+                <li class="list-group-item"><a href="/bycategory/{{$category->id}}">{{$category->category}}</a></li>
+{{--                <span><a href="/del/{{$category->id}}">X</a></span>--}}
+                                            {{--  Modeliu relations, bet vietoj kategrijos pavadinimo gaunu jos Id          --}}
+                <li class="list-group-item"><a href="/postby/{{$category->id}}">Eloquent. Relationships method: {{$category->category}} </a></li>
             @endforeach
         </ul>
+        </div>
     </div>
-
-
 
 @endsection

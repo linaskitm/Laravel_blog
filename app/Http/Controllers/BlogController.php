@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index(){
 
-        $posts = Post::paginate(7);
+        $posts = Post::paginate(3);
         $cat = Category::all();
 
         return view('blog_theme.pages.home', compact('posts','cat'));
@@ -51,5 +51,13 @@ class BlogController extends Controller
     public function delete(Post $post){
         $post->delete();
         return redirect('/');
+    }
+//----- neveikia sitas
+    public function showByCategory(Request $request, Post $post1){
+
+        $posts = Post::with('categoryBy')->where('category', $request->category)->get();
+        $post1 = Post::paginate(2);
+       // dd($posts);
+        return view('blog_theme.pages.category-one', compact('posts', 'post1'));
     }
 }

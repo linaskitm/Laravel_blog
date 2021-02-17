@@ -32,3 +32,7 @@ Route::get('/del/{category}', 'CategoryController@deleteCategory');
 Route::get('/postby/{category}', 'BlogController@showByCategory');
 Route::get('/bycategory/{category}', 'CategoryController@selectByCategory');
 
+
+Auth::routes();
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

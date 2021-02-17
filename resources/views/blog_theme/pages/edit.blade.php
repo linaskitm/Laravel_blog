@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
         <label for="image"></label>
-        <input type="file" class="btn" id="image" name="image">
+        <input type="file" class="btn" id="image" name="image" >
     </div>
     <div class="form-group d-flex justify-content-center m-5">
         <button type="submit" class="btn btn-secondary rounded">Post</button>

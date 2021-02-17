@@ -10,6 +10,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="/add-category">Add Category</a>
                 </li>
@@ -19,6 +20,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
+
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                    <li class="nav-item"> <a class="nav-link">{{ Auth::user()->name }}</a></li>
+                @else
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                @endif
+
             </ul>
         </div>
     </div>

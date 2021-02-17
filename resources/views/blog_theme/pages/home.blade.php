@@ -16,19 +16,32 @@
                         <a href="post/{{$post->id}}">Read more</a>
                         @endif
 
+
             </a>
+            <div>
+                <img src="{{asset($post->image)}}" >
+            </div>
                     @foreach($cat as $c)
                         @if($post->category == $c->id)
             <p class="post-meta mb-0">Category: {{$c->category}}
                         @endif
                     @endforeach
 
-                    <p class="post-meta mt-0">Created at: {{$post->created_at->format('M j, Y')}}</p>
+                    <p class="post-meta mb-0">Created at: {{$post->created_at->format('M j, Y')}}</p>
 
-            <ul class="list-group">
-                <li class="list-group-item"><a href="/edit/{{$post->id}}">Edit</a></li>
-                <li class="list-group-item"><a href="/delete/{{$post->id}}">Delete</a></li>
-            </ul>
+
+            @foreach($users as $user)
+                @if($user->id === $post->user_id)
+                    <p class="post-meta mt-0"> Author: {{ $user->name }}</p>
+                    @if(!empty($auth) and $auth->name === $user->name)
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="/edit/{{$post->id}}">Edit</a></li>
+                            <li class="list-group-item"><a href="/delete/{{$post->id}}">Delete</a></li>
+                        </ul>
+                    @endif
+                @endif
+
+            @endforeach
         </div>
             <hr>
         @endforeach
@@ -37,7 +50,7 @@
         <!-- Pager -->
         <div class="clearfix">
             {{$posts->links()}}
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+            <a class="btn btn-primary float-right" href="/">Back to Top &uarr;</a>
         </div>
     </div>
 </div>

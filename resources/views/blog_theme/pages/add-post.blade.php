@@ -4,7 +4,7 @@
         <h2>Add Post</h2>
     </div>
     @include('blog_theme/_partials/errors')
-    <form action="/store" method="post">
+    <form action="/store" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
             <label for="title"></label>

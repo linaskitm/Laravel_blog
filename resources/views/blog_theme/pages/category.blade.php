@@ -19,10 +19,11 @@
 
         <ul class="list-group">
             @foreach($categories as $category)
-                <li class="list-group-item"><a href="/bycategory/{{$category->id}}">{{$category->category}}</a></li>
-{{--                <span><a href="/del/{{$category->id}}">X</a></span>--}}
+                <li class="list-group-item"><a href="/bycategory/{{$category->id}}">{{$category->category}}</a><span class="float-right"><a href="/del/{{$category->id}}"><i class="fas fa-trash"></i>
+</a></span></li>
+
                                             {{--  Modeliu relations, bet vietoj kategrijos pavadinimo gaunu jos Id          --}}
-                <li class="list-group-item"><a href="/postby/{{$category->id}}">Eloquent. Relationships method: {{$category->category}} </a></li>
+{{--                <li class="list-group-item"><a href="/postby/{{$category->id}}">Eloquent. Relationships method: {{$category->category}} </a></li>--}}
             @endforeach
         </ul>
         </div>

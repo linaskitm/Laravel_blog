@@ -44,7 +44,20 @@
             @endforeach
         </div>
             <hr>
-        @endforeach
+            <form method="post" action="/post{{$post->id}}/comment">
+                {{csrf_field()}}
+                <label> Leave a comment</label>
+                <textarea name="body" class="form-control" rows="2"> </textarea>
+                <button type="submit">Comment</button>
+            </form>
+            <ul>
+                @foreach($post->comments as $comment)
+                    <li>{{$comment->body}}</li>
+                @endforeach
+            </ul>
+
+    @endforeach
+
 
 
         <!-- Pager -->

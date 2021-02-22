@@ -32,6 +32,8 @@ Route::get('/del/{category}', 'CategoryController@deleteCategory');
 Route::get('/postby/{category}', 'BlogController@showByCategory');
 Route::get('/bycategory/{category}', 'CategoryController@selectByCategory');
 
+Route::post('/post{post}/comment', 'CommentController@addComment');
+
 
 Auth::routes();
 
